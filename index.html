@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Science Portfolio | Your Name</title>
+  <meta name="description" content="Data science portfolio for Your Name: machine learning, analytics, visualization, and MLOps projects." />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📊</text></svg>">
+  <meta property="og:title" content="Data Science Portfolio | Your Name" />
+  <meta property="og:description" content="Machine learning, analytics, visualization, and MLOps projects by Your Name." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <script>
+    // Respect system preference on first load
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if ((saved === 'dark') || (!saved && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header container">
+    <div class="brand">
+      <div class="avatar" aria-hidden="true">YN</div>
+      <div class="id">
+        <h1>Your Name</h1>
+        <p>Data Scientist • Machine Learning • Analytics</p>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <button id="themeToggle" class="btn btn-secondary" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="#resume">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="intro-title">
+      <div>
+        <h2 id="intro-title">Turning data into decisions</h2>
+        <p>
+          I build end‑to‑end data products—from problem framing and data engineering
+          to modeling, MLOps, and impactful communication. I love clean code,
+          reproducible research, and thoughtful visualizations.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="mailto:your.email@example.com">Get in Touch</a>
+        </div>
+      </div>
+      <ul class="quick-stats" aria-label="Highlights">
+        <li><strong>8+</strong><span>years experience</span></li>
+        <li><strong>15</strong><span>deployed models</span></li>
+        <li><strong>50k+</strong><span>users impacted</span></li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="section-head">
+        <h2 id="projects-title">Selected Projects</h2>
+        <p>Production‑grade work spanning ML, analytics, and visualization.</p>
+      </div>
+      <div class="grid">
+        <!-- Project 1 -->
+        <article class="card project">
+          <div class="card-body">
+            <h3>Time‑Series Demand Forecasting</h3>
+            <p>Built an MLOps pipeline (Prophet/XGBoost) for weekly SKU‑level forecasts with feature store, model registry, and CI/CD.</p>
+            <ul class="tags">
+              <li>Python</li><li>Prophet</li><li>XGBoost</li><li>MLflow</li><li>Airflow</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-link" href="#" aria-label="Demo for Time-Series Demand Forecasting">Demo</a>
+            <a class="btn btn-link" href="#" aria-label="Code for Time-Series Demand Forecasting">Code</a>
+            <span class="meta">2025</span>
+          </div>
+        </article>
+        <!-- Project 2 -->
+        <article class="card project">
+          <div class="card-body">
+            <h3>NLP Customer Feedback Insights</h3>
+            <p>Deployed topic modeling and sentiment dashboards from 1.2M reviews; reduced response time by 28%.</p>
+            <ul class="tags">
+              <li>Python</li><li>spaCy</li><li>BERTopic</li><li>Dash</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-link" href="#">Case Study</a>
+            <a class="btn btn-link" href="#">Code</a>
+            <span class="meta">2024</span>
+          </div>
+        </article>
+        <!-- Project 3 -->
+        <article class="card project">
+          <div class="card-body">
+            <h3>Computer Vision Quality Control</h3>
+            <p>Fine‑tuned a YOLOv8 model to detect defects in real time; integrated with edge devices on the factory floor.</p>
+            <ul class="tags">
+              <li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>Edge</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-link" href="#">Write‑up</a>
+            <a class="btn btn-link" href="#">Code</a>
+            <span class="meta">2023</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="section-head">
+        <h2 id="skills-title">Skills</h2>
+        <p>Core technical stack and tools I use day‑to‑day.</p>
+      </div>
+      <div class="grid skills">
+        <div class="card">
+          <div class="card-body">
+            <h3>ML & Stats</h3>
+            <ul>
+              <li>Regression, Classification, Time Series</li>
+              <li>Feature Engineering, Model Interpretability (SHAP)</li>
+              <li>Experimentation & Causal Inference</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>Data Engineering</h3>
+            <ul>
+              <li>SQL, dbt, Airflow</li>
+              <li>Data Modeling, Warehousing (Snowflake/BigQuery)</li>
+              <li>Streaming (Kafka), APIs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>MLOps</h3>
+            <ul>
+              <li>MLflow, Feature Stores</li>
+              <li>CI/CD (GitHub Actions), Docker</li>
+              <li>Monitoring & Drift Detection</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3>Visualization</h3>
+            <ul>
+              <li>Matplotlib, Seaborn, Plotly</li>
+              <li>Dash, Streamlit, Power BI</li>
+              <li>Storytelling & UX</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section" aria-labelledby="exp-title">
+      <div class="section-head">
+        <h2 id="exp-title">Experience</h2>
+        <p>Highlights from prior roles.</p>
+      </div>
+      <div class="timeline">
+        <article class="card">
+          <div class="card-body">
+            <h3>Senior Data Scientist <span class="muted">— Company</span></h3>
+            <p class="meta">2023 – Present • Minneapolis, MN</p>
+            <ul>
+              <li>Led forecasting platform redesign, improving MAPE by 12%.</li>
+              <li>Built model registry and automated promotion workflows.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3>Data Scientist <span class="muted">— Company</span></h3>
+            <p class="meta">2020 – 2023 • Remote</p>
+            <ul>
+              <li>Shipped NLP insights dashboard used across CX and Product.</li>
+              <li>Collaborated with engineering to productionize pipelines.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="section" aria-labelledby="pub-title">
+      <div class="section-head">
+        <h2 id="pub-title">Publications & Talks</h2>
+      </div>
+      <ul class="list">
+        <li>
+          <strong>Feature Stores in Practice</strong> — PyData (Talk), 2025
+          <a href="#">Slides</a> · <a href="#">Recording</a>
+        </li>
+        <li>
+          <strong>Human‑Centered Evaluation of ML Systems</strong> — Blog, 2024
+          <a href="#">Post</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Resume & Contact -->
+    <section id="resume" class="section" aria-labelledby="resume-title">
+      <div class="section-head">
+        <h2 id="resume-title">Resume & Contact</h2>
+        <p>Prefer a one‑pager? Download my resume or reach out directly.</p>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <p>
+            <a class="btn btn-primary" href="resume.pdf" download>Download Resume (PDF)</a>
+            <a class="btn btn-ghost" href="mailto:your.email@example.com">your.email@example.com</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/your-handle/" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/your-handle" rel="noopener">GitHub</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Your Name • Built with HTML & CSS • Hosted on GitHub Pages</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const update = () => {
+      const dark = root.classList.toggle('dark');
+      btn.setAttribute('aria-pressed', String(dark));
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      btn.textContent = dark ? '☀️' : '🌙';
+    };
+    // initialize label
+    btn.textContent = root.classList.contains('dark') ? '☀️' : '🌙';
+    btn.addEventListener('click', update);
+  </script>
+</body>
+</html>
