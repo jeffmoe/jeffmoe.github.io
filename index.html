@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Science Portfolio | Your Name</title>
-  <meta name="description" content="Data science portfolio for Jeff Moe: machine learning, analytics, visualization, and MLOps projects." />
+  <title>Jeffrey Moe | Data Science & Cloud Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Jeffrey Moe — data science, machine learning, analytics, and AWS cloud projects." />
   <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📊</text></svg>">
-  <meta property="og:title" content="Data Science Portfolio | Jeff Moe" />
-  <meta property="og:description" content="Machine learning, analytics, visualization, and MLOps projects by Your Name." />
+  <meta property="og:title" content="Jeffrey Moe | Data Science & Cloud Engineering" />
+  <meta property="og:description" content="Data science, ML, analytics, and AWS projects by Jeffrey Moe." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0f172a" />
   <script>
-    // Respect system preference on first load
     const saved = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if ((saved === 'dark') || (!saved && prefersDark)) {
@@ -25,10 +24,10 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header container">
     <div class="brand">
-      <div class="avatar" aria-hidden="true">YN</div>
+      <div class="avatar" aria-hidden="true">JM</div>
       <div class="id">
-        <h1>Your Name</h1>
-        <p>Data Scientist • Machine Learning • Analytics</p>
+        <h1>Jeffrey Moe</h1>
+        <p>Data Science & Cloud • ML • AWS • Analytics</p>
       </div>
     </div>
     <nav class="nav" aria-label="Primary">
@@ -36,7 +35,8 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
       <a class="btn btn-primary" href="#resume">Resume</a>
     </nav>
@@ -46,21 +46,20 @@
     <!-- Hero -->
     <section class="hero" aria-labelledby="intro-title">
       <div>
-        <h2 id="intro-title">Turning data into decisions</h2>
+        <h2 id="intro-title">Strong leader turning ops challenges into data‑driven solutions</h2>
         <p>
-          I build end‑to‑end data products—from problem framing and data engineering
-          to modeling, MLOps, and impactful communication. I love clean code,
-          reproducible research, and thoughtful visualizations.
+          Senior Technical Support Specialist with 7+ years of industry experience. I build ML models and
+          production‑minded cloud solutions (AWS) while improving processes with automation and clear analytics.
         </p>
         <div class="cta">
           <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-ghost" href="mailto:your.email@example.com">Get in Touch</a>
+          <a class="btn btn-ghost" href="mailto:jefftmoe@gmail.com">jefftmoe@gmail.com</a>
         </div>
       </div>
       <ul class="quick-stats" aria-label="Highlights">
-        <li><strong>8+</strong><span>years experience</span></li>
-        <li><strong>Multiple</strong><span>transformatitive projects</span></li>
-        <li><strong>100+</strong><span>users impacted</span></li>
+        <li><strong>7+ years</strong><span>industry experience</span></li>
+        <li><strong>97% acc.</strong><span>MNIST CNN classifier</span></li>
+        <li><strong>2022</strong><span>President's Club</span></li>
       </ul>
     </section>
 
@@ -68,52 +67,91 @@
     <section id="projects" class="section" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title">Selected Projects</h2>
-        <p>Production‑grade work spanning ML, analytics, and visualization.</p>
+        <p>Hands‑on work in machine learning and AWS architecture.</p>
       </div>
       <div class="grid">
-        <!-- Project 1 -->
+        <!-- Project 1: GAN + Classifier -->
         <article class="card project">
           <div class="card-body">
-            <h3>Time‑Series Demand Forecasting</h3>
-            <p>Built an MLOps pipeline (Prophet/XGBoost) for weekly SKU‑level forecasts with feature store, model registry, and CI/CD.</p>
+            <h3>GAN & CNN Classifier (MNIST)</h3>
+            <p>Built a CNN classifier and GAN in PyTorch; implemented DataParallel and AMP. Classifier reached 97% accuracy; generator produced lifelike digits and training GIF.</p>
             <ul class="tags">
-              <li>Python</li><li>Prophet</li><li>XGBoost</li><li>MLflow</li><li>Airflow</li>
+              <li>PyTorch</li><li>DataParallel</li><li>AMP</li><li>Matplotlib</li>
             </ul>
           </div>
           <div class="card-footer">
-            <a class="btn btn-link" href="#" aria-label="Demo for Time-Series Demand Forecasting">Demo</a>
-            <a class="btn btn-link" href="#" aria-label="Code for Time-Series Demand Forecasting">Code</a>
-            <span class="meta">2025</span>
+            <a class="btn btn-link" href="Portfolio.pdf#page=1">Case Study (PDF)</a>
+            <span class="meta">Deep Learning</span>
           </div>
         </article>
-        <!-- Project 2 -->
+        <!-- Project 2: Linear Regression -->
         <article class="card project">
           <div class="card-body">
-            <h3>NLP Customer Feedback Insights</h3>
-            <p>Deployed topic modeling and sentiment dashboards from 1.2M reviews; reduced response time by 28%.</p>
+            <h3>Predicting Delivery Time (Regression)</h3>
+            <p>Developed a PyTorch regression model with scikit‑learn feature selection. R² = 0.812, RMSE = 9.85 min, MAE = 7.30 min; residual analysis and diagnostics.</p>
             <ul class="tags">
-              <li>Python</li><li>spaCy</li><li>BERTopic</li><li>Dash</li>
+              <li>PyTorch</li><li>scikit‑learn</li><li>Pandas</li><li>Seaborn</li>
             </ul>
           </div>
           <div class="card-footer">
-            <a class="btn btn-link" href="#">Case Study</a>
-            <a class="btn btn-link" href="#">Code</a>
-            <span class="meta">2024</span>
+            <a class="btn btn-link" href="Portfolio.pdf#page=4">Case Study (PDF)</a>
+            <span class="meta">Modeling</span>
           </div>
         </article>
-        <!-- Project 3 -->
+        <!-- Project 3: Discriminative Model -->
         <article class="card project">
           <div class="card-body">
-            <h3>Computer Vision Quality Control</h3>
-            <p>Fine‑tuned a YOLOv8 model to detect defects in real time; integrated with edge devices on the factory floor.</p>
+            <h3>NFL Position Classification</h3>
+            <p>Combined Random Forest (GridSearchCV) with a PyTorch NN using forest predictions as a feature; achieved 62.3% accuracy with confusion‑matrix analysis.</p>
             <ul class="tags">
-              <li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>Edge</li>
+              <li>Random Forest</li><li>PyTorch</li><li>GridSearchCV</li><li>Seaborn</li>
             </ul>
           </div>
           <div class="card-footer">
-            <a class="btn btn-link" href="#">Write‑up</a>
-            <a class="btn btn-link" href="#">Code</a>
-            <span class="meta">2023</span>
+            <a class="btn btn-link" href="Portfolio.pdf#page=6">Case Study (PDF)</a>
+            <span class="meta">ML & DL</span>
+          </div>
+        </article>
+        <!-- Project 4: IaC + Alerts -->
+        <article class="card project">
+          <div class="card-body">
+            <h3>IaC Stack + Serverless Alerting</h3>
+            <p>Deployed an auto‑scaling stack via CloudFormation; EventBridge triggers Lambda to update logs on EC2 termination and CloudWatch alarm emails on thresholds.</p>
+            <ul class="tags">
+              <li>AWS</li><li>CloudFormation</li><li>Lambda</li><li>CloudWatch</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-link" href="Portfolio.pdf#page=8">Architecture (PDF)</a>
+            <span class="meta">Cloud</span>
+          </div>
+        </article>
+        <!-- Project 5: Web App on AWS -->
+        <article class="card project">
+          <div class="card-body">
+            <h3>Deploy a Web App on AWS</h3>
+            <p>Provisioned VPC, EC2 (Apache), S3, RDS (MySQL in private subnet), IAM, and CloudWatch dashboards & alarms; focus on security groups and subnet routing.</p>
+            <ul class="tags">
+              <li>VPC</li><li>EC2</li><li>S3</li><li>RDS</li><li>IAM</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-link" href="Portfolio.pdf#page=10">Architecture (PDF)</a>
+            <span class="meta">Cloud</span>
+          </div>
+        </article>
+        <!-- Project 6: DynamoDB Leaderboard -->
+        <article class="card project">
+          <div class="card-body">
+            <h3>DynamoDB Leaderboard (NoSQL)</h3>
+            <p>Designed single‑table schema with access patterns; used Boto3 and AWS CLI to create table, load, scan, and manipulate data for an online game leaderboard.</p>
+            <ul class="tags">
+              <li>DynamoDB</li><li>Boto3</li><li>AWS CLI</li><li>NoSQL</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-link" href="Portfolio.pdf#page=2">Case Study (PDF)</a>
+            <span class="meta">Databases</span>
           </div>
         </article>
       </div>
@@ -123,49 +161,49 @@
     <section id="skills" class="section" aria-labelledby="skills-title">
       <div class="section-head">
         <h2 id="skills-title">Skills</h2>
-        <p>Core technical stack and tools I use day‑to‑day.</p>
+        <p>Core technical stack and platforms.</p>
       </div>
       <div class="grid skills">
-        <div class="card">
-          <div class="card-body">
-            <h3>ML & Stats</h3>
-            <ul>
-              <li>Regression, Classification, Time Series</li>
-              <li>Feature Engineering, Model Interpretability (SHAP)</li>
-              <li>Experimentation & Causal Inference</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>Data Engineering</h3>
-            <ul>
-              <li>SQL, dbt, Airflow</li>
-              <li>Data Modeling, Warehousing (Snowflake/BigQuery)</li>
-              <li>Streaming (Kafka), APIs</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>MLOps</h3>
-            <ul>
-              <li>MLflow, Feature Stores</li>
-              <li>CI/CD (GitHub Actions), Docker</li>
-              <li>Monitoring & Drift Detection</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h3>Visualization</h3>
-            <ul>
-              <li>Matplotlib, Seaborn, Plotly</li>
-              <li>Dash, Streamlit, Power BI</li>
-              <li>Storytelling & UX</li>
-            </ul>
-          </div>
-        </div>
+        <div class="card"><div class="card-body">
+          <h3>Programming</h3>
+          <ul>
+            <li>Python, SQL, Gremlin</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>ML & DL</h3>
+          <ul>
+            <li>scikit‑learn, PyTorch, TensorFlow</li>
+            <li>Statsmodels, SHAP (interpretability)</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>Data Analysis & Viz</h3>
+          <ul>
+            <li>Pandas, NumPy, Seaborn, Matplotlib, Power BI</li>
+            <li>Jupyter Notebooks</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>Cloud & Infra</h3>
+          <ul>
+            <li>AWS, IaC, Networking, Redis</li>
+            <li>AWS SDK/CLI</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>AWS Services</h3>
+          <ul>
+            <li>RDS, S3, EC2, VPC, Lambda, CloudWatch</li>
+            <li>DynamoDB, IAM, CloudFormation, Neptune, Timestream</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-body">
+          <h3>Databases</h3>
+          <ul>
+            <li>MySQL (RDBMS), NoSQL (DynamoDB), Graph (Neptune)</li>
+          </ul>
+        </div></div>
       </div>
     </section>
 
@@ -173,46 +211,63 @@
     <section id="experience" class="section" aria-labelledby="exp-title">
       <div class="section-head">
         <h2 id="exp-title">Experience</h2>
-        <p>Highlights from prior roles.</p>
+        <p>Rosemount Inc. — customer impact, automation, and cross‑team delivery.</p>
       </div>
       <div class="timeline">
         <article class="card">
           <div class="card-body">
-            <h3>Senior Data Scientist <span class="muted">— Company</span></h3>
-            <p class="meta">2023 – Present • Minneapolis, MN</p>
+            <h3>Senior Technical Support Specialist <span class="muted">— Rosemount Inc.</span></h3>
+            <p class="meta">2023 – Present • Golden Valley, MN</p>
             <ul>
-              <li>Led forecasting platform redesign, improving MAPE by 12%.</li>
-              <li>Built model registry and automated promotion workflows.</li>
+              <li>Interdivisional contact improving order turnaround time and cross‑department communication.</li>
+              <li>Prioritize urgent orders using demand, inventory, and projected supply signals.</li>
+              <li>Built Power BI dashboards; improved program efficiency with Microsoft Power Tools.</li>
+              <li>International factory liaison for measurement instrumentation technical support.</li>
             </ul>
           </div>
         </article>
         <article class="card">
           <div class="card-body">
-            <h3>Data Scientist <span class="muted">— Company</span></h3>
-            <p class="meta">2020 – 2023 • Remote</p>
+            <h3>Senior / Inside Sales Engineer <span class="muted">— Rosemount Inc.</span></h3>
+            <p class="meta">2018 – 2023 • Various</p>
             <ul>
-              <li>Shipped NLP insights dashboard used across CX and Product.</li>
-              <li>Collaborated with engineering to productionize pipelines.</li>
+              <li>Led workflow improvements via Power Automate and RPAs; automated email sorting saved 30–45 min/day per sales engineer.</li>
+              <li>Project lead & developer for 2022 ISE Sales Program (record retention, participation, and revenue).</li>
+              <li>Exceeded sales goals: 115.2% overall in 2022 ($11.3M bookings; 207% service at $1.05M) and 135% overall in 2020 ($7.8M; 154% wireless at $992k).</li>
+              <li>Mentored new sales engineers and led new‑hire training.</li>
             </ul>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Publications -->
-    <section id="publications" class="section" aria-labelledby="pub-title">
+    <!-- Education -->
+    <section id="education" class="section" aria-labelledby="edu-title">
       <div class="section-head">
-        <h2 id="pub-title">Publications & Talks</h2>
+        <h2 id="edu-title">Education</h2>
+      </div>
+      <div class="timeline">
+        <article class="card"><div class="card-body">
+          <h3>MS, Data Science <span class="muted">— Concordia University, St. Paul</span></h3>
+          <p class="meta">Expected 2026</p>
+        </div></article>
+        <article class="card"><div class="card-body">
+          <h3>BS, Mechanical Engineering (Minor: Physics) <span class="muted">— University of St. Thomas</span></h3>
+          <p class="meta">2017</p>
+        </div></article>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="section" aria-labelledby="ach-title">
+      <div class="section-head">
+        <h2 id="ach-title">Achievements</h2>
       </div>
       <ul class="list">
-        <li>
-          <strong>Feature Stores in Practice</strong> — PyData (Talk), 2025
-          <a href="#">Slides</a> · <a href="#">Recording</a>
-        </li>
-        <li>
-          <strong>Human‑Centered Evaluation of ML Systems</strong> — Blog, 2024
-          <a href="#">Post</a>
-        </li>
+        <li>Citizen Developer for Rosemount Inc. (2020–2023)</li>
+        <li>2022 President's Club Winner; 2021 President's Club Nominee</li>
+        <li>Leader in 2022 Inside Sales Programs (362 quotes; top‑2 volume)</li>
+        <li>Top‑10 in 2022 Digital Sales Program; Top‑6 in 2021 Inside Sales Program</li>
       </ul>
     </section>
 
@@ -220,23 +275,25 @@
     <section id="resume" class="section" aria-labelledby="resume-title">
       <div class="section-head">
         <h2 id="resume-title">Resume & Contact</h2>
-        <p>Prefer a one‑pager? Download my resume or reach out directly.</p>
+        <p>Download my resume and portfolio or get in touch.</p>
       </div>
       <div class="card">
-        <div class="card-body">
-          <p>
-            <a class="btn btn-primary" href="resume.pdf" download>Download Resume (PDF)</a>
-            <a class="btn btn-ghost" href="mailto:jefftmoe@gmail.com">your.email@example.com</a>
+        <div class="card-body" id="contact">
+          <p class="cta">
+            <a class="btn btn-primary" href="JeffreyMoe Resume.pdf" download>Download Resume (PDF)</a>
+            <a class="btn btn-secondary" href="Portfolio.pdf" download>Portfolio (PDF)</a>
+            <a class="btn btn-ghost" href="mailto:jefftmoe@gmail.com">jefftmoe@gmail.com</a>
+            <a class="btn btn-ghost" href="tel:+17633817387">763‑381‑7387</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/jefftmoe/" rel="noopener">LinkedIn</a>
-            <a class="btn btn-ghost" href="https://github.com/jeffmoe" rel="noopener">GitHub</a>
           </p>
+          <p class="muted">Golden Valley, MN</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer container">
-    <p>© <span id="year"></span> Jeff Moe • Built with HTML & CSS • Hosted on GitHub Pages</p>
+    <p>© <span id="year"></span> Jeffrey Moe • Built with HTML & CSS • Hosted on GitHub Pages</p>
   </footer>
 
   <script>
@@ -249,7 +306,6 @@
       localStorage.setItem('theme', dark ? 'dark' : 'light');
       btn.textContent = dark ? '☀️' : '🌙';
     };
-    // initialize label
     btn.textContent = root.classList.contains('dark') ? '☀️' : '🌙';
     btn.addEventListener('click', update);
   </script>
