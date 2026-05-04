@@ -176,7 +176,7 @@ Deployed a production‑style web application using AWS services with layered se
 Experience designing and implementing **relational, NoSQL, graph, and time‑series databases** based on business needs.
 
 ---
-
+<a id="project-ai-enhanced-database-ecosystem-aws"></a>
 ## Project: AI‑Enhanced Database Ecosystem (AWS)
 
 ### Overview
