@@ -133,6 +133,8 @@ class Classifier(nn.Module):
 - GAN converged with decreasing generator and discriminator losses
 - Substantial reduction in training time using AMP and parallelism
 
+<img width="846" height="468" alt="image" src="https://github.com/user-attachments/assets/a5acc71a-0db1-4eca-8b15-7db6886c742d" />
+
 ---
 
 ## Project: Develop and Analyze a Linear Regression Model
