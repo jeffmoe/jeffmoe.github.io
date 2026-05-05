@@ -44,6 +44,8 @@ Focused on deep learning, parallel computing, and ethical considerations in AI, 
 ### Overview
 Developed a **CNN classifier** and **GAN** using the MNIST dataset (70,000 handwritten digits). The classifier achieved high accuracy, while the GAN successfully generated lifelike synthetic digits. Training was optimized using **multi‑GPU parallelization** and **Automatic Mixed Precision (AMP)**.
 
+### Project Link
+
 ### Methodologies
 - CNN‑based digit classifier
 - GAN architecture with generator and discriminator
@@ -60,6 +62,70 @@ Developed a **CNN classifier** and **GAN** using the MNIST dataset (70,000 handw
 | NumPy | Data processing |
 | Scikit‑learn | Evaluation metrics |
 | psutil / os | Resource monitoring |
+
+### Custom Pytorch Classes
+```python
+class MNISTDataset(Dataset):
+    def __init__(self, root, train=True, transform=None, download=True):
+        self.mnist_data = datasets.MNIST(root=root, train=train, transform=transform, download=download)
+
+    def __len__(self):
+        return len(self.mnist_data)
+
+    def __getitem__(self, idx):
+        image, label = self.mnist_data[idx]
+        return image, label
+    
+
+class Generator(nn.Module):
+    def __init__(self, noise_dim, img_dim):
+        super(Generator, self).__init__()
+        self.img_dim = img_dim
+        self.fc = nn.Linear(noise_dim, 128 * 7 * 7)
+        self.deconv = nn.Sequential(
+            nn.ConvTranspose2d(128, 64, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(True),
+            nn.ConvTranspose2d(64, 1, kernel_size=4, stride=2, padding=1),
+            nn.Tanh()
+        )
+
+    def forward(self, x):
+        x = self.fc(x)
+        x = x.view(x.size(0), 128, 7, 7)
+        x = self.deconv(x)
+        return x
+    
+class Discriminator(nn.Module):
+    def __init__(self):
+        super(Discriminator, self).__init__()
+        self.model = nn.Sequential(
+            nn.Conv2d(1, 64, kernel_size=4, stride=2, padding=1),
+            nn.LeakyReLU(0.2, inplace=True),
+            nn.Conv2d(64, 128, kernel_size=4, stride=2, padding=1),
+            nn.LeakyReLU(0.2, inplace=True),
+            nn.Flatten(),
+            nn.Linear(128 * 7 * 7, 1) 
+        )
+
+    def forward(self, x):
+        return self.model(x)
+
+class Classifier(nn.Module):
+    def __init__(self):
+        super(Classifier, self).__init__()
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=32, kernel_size=3, stride=1, padding=1)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.fc1 = nn.Linear(32 * 14 * 14, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = x.view(-1, 32 * 14 * 14) 
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+```
 
 ### Outcomes
 - **Classifier accuracy:** 97%
