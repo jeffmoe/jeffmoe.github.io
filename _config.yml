@@ -4,3 +4,6 @@ plugins:
 title: Jeff Moe
 description: A online portfolio showcasing my skills and career journey.
 index: README.md
+back_to_top: true
+back_to_top_text: "Back to top"
+color_scheme: dark
