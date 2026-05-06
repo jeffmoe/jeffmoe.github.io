@@ -1,4 +1,4 @@
----
+<img width="2674" height="105" alt="image" src="https://github.com/user-attachments/assets/7011033e-858e-4947-83eb-96844e8cd610" /><img width="2442" height="81" alt="image" src="https://github.com/user-attachments/assets/df5e4e2f-a18b-4da8-a8f6-f8d56207a3df" />---
 ---
 <link rel="stylesheet" href="styles.css">
 
@@ -681,7 +681,8 @@ Resources:
 
 ### Overview
 Deployed a production‑style web application using AWS services with layered security and monitoring.
-
+### Link
+[Link]
 ### Architecture Components
 - VPC with public/private subnets
 - EC2 hosting Apache web server
@@ -693,7 +694,7 @@ Deployed a production‑style web application using AWS services with layered se
 - Secure, monitored web application
 - Strong understanding of cloud security layering
 - Demonstrated automation and infrastructure monitoring
-
+<p><img width="869" height="694" alt="image" src="https://github.com/user-attachments/assets/6f50bc6f-f7d2-4412-b246-deaa61534d00" /></p>
 ---
 
 ## Database Systems
@@ -713,7 +714,69 @@ Designed a multi‑database ecosystem for a movie rental business to support **s
 - **Neptune:** relationship modeling
 - **Timestream:** trend analysis
 - **Elasticsearch:** advanced search
+ 
+### Project Diagrams and Info
+**Architecture Diagram**
+<p><img width="1129" height="634" alt="image" src="https://github.com/user-attachments/assets/c4ef9a9c-f28f-4dda-9677-ed1b06047670" /></p>
 
+**Security Diagram**
+<p><img width="1035" height="648" alt="image" src="https://github.com/user-attachments/assets/e85655d1-f154-4408-bcfc-7447c0dcd4ab" /></p>
+
+**Entity Relationship Diagram**
+<p><img width="1210" height="614" alt="image" src="https://github.com/user-attachments/assets/8b5a6bd3-b0b0-4090-93b1-bf2e0cca0972" /></p>
+
+**Architecture with AI Integration**
+<p><img width="978" height="641" alt="image" src="https://github.com/user-attachments/assets/d4e36e95-6620-48fd-8510-82fb2e90fc90" /></p>
+
+### Example Queries
+Postgre: This query shows all the movies that were rented more than 30 times last month. This allows the company to adjust their inventory appropriately for what is being rented.
+```sql
+SELECT m.MovieID, m.Title, COUNT(r.RentalID) AS rentals FROM Movies m JOIN Rentals r ON m.MovieID = r.MovieID WHERE r.RentalDate >= DATE_TRUNC('month', CURRENT_DATE INTERVAL '1 month') GROUP BY m.MovieID HAVING COUNT(r.RentalID) > 30 ORDER BY rentals DESC;
+```
+DynamoDB: This code and query graphs all the movies that were added to the dynamodb database in the past three months. 
+```python
+import boto3
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+from dynamodb_json import json_util
+
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('Movies')  # Replace with your table name
+
+three_months_ago = (datetime.now() - timedelta(days=90)).isoformat()
+
+response = table.scan(
+    FilterExpression='added_date >= :date',
+    ExpressionAttributeValues={
+        ':date': three_months_ago
+    }
+)
+movies = json_util.loads(response['Items'])
+movie_titles = []
+add_dates = []
+genres = []
+for movie in movies:
+    movie_titles.append(movie.get('title', 'N/A'))
+    add_dates.append(datetime.fromisoformat(movie['added_date']))
+    genres.append(', '.join(movie.get('genres', [])))
+
+plt.figure(figsize=(12, 8))
+plt.plot_date(add_dates, movie_titles, linestyle='none')
+plt.title('Movies Added in Last 3 Months')
+plt.ylabel('Movie Title')
+plt.grid(True)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+Neptune: Here is a specific query to see which genre has the most rentals.
+```gremlin
+g.V().hasLabel('Genre').project('genre','rental_count').by('name').by(in_('CONTAINS').count())order().by('rental_count', decr).toList()
+```
+Timestream: This query is more advanced, as it shows the breakdown of movie rentals per hour. 
+```sql
+SELECT bin("rented timestamp", 1h) AS hour_bin, COUNT(*) AS rentals FROM "movie-rental-database"."Rentals" WHERE "Rented" BETWEEN ago(90d) AND now() GROUP BY bin("Rented", 1h) ORDER BY hour_bin;
+```
 ### Outcomes
 - Scalable, cost‑efficient architecture
 - Databases aligned to access patterns
@@ -727,12 +790,82 @@ Designed a multi‑database ecosystem for a movie rental business to support **s
 Designed and implemented an AWS **Timestream** database to monitor DevOps infrastructure and enable real‑time anomaly detection.
 
 ### Tools
+
 | Tool | Use |
 |---|---|
 | AWS Timestream | Time‑series data storage |
 | AWS CLI | Environment access |
 | Python / Boto3 | Infrastructure deployment |
 
+### Using BOTO3 and CLI
+The following code in your local instance will allow for database creation once you have successfully connected to AWS using your user access key:
+```python
+import boto3
+timestream = boto3.client('timestream-write')
+database_name = 'OmptimaTechDB'
+try:
+    response = timestream.create_database(DatabaseName=database_name)
+    print(f"Database '{database_name}' created successfully.")
+except timestream.exceptions.ConflictException:
+    print(f"Database '{database_name}' already exists.")
+except Exception as e:
+    print(f"Error creating database: {e}")
+table_name = 'DevOPsMetrics'
+try:
+    response = timestream.create_table(
+        DatabaseName=database_name,
+        TableName=table_name
+    )
+    print(f"Table '{table_name}' created successfully in database '{database_name}'.")
+except timestream.exceptions.ConflictException:
+    print(f"Table '{table_name}' already exists in database '{database_name}'.")
+except Exception as e:
+    print(f"Error creating table: {e}")
+```
+The following code was used in python to upload a test data set I created in a csv file to test writing data into Timestream:
+```python
+with open(csv_file_path, 'r', encoding='utf-8-sig', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    print("CSV Headers:", reader.fieldnames)
+    for row in reader:
+        dimensions = [
+            {'Name': 'Application_ID', 'Value': row['Application_ID']},
+            {'Name': 'Application_Name', 'Value': row['Application_Name']}
+        ]
+        metrics = ['CPU_Usage', 'HTTP_Status', 'Network_Throughput', 'Memory_Usage']
+        records = []
+        for metric in metrics:
+            value_type = 'DOUBLE' if metric != 'HTTP_Status' else 'BIGINT'
+            records.append({
+                'Dimensions': dimensions,
+                'MeasureName': metric,
+                'MeasureValue': row[metric],
+                'MeasureValueType': value_type,
+                'Time': parse_timestamp(row['Time_Stamp']),
+                'TimeUnit': 'MILLISECONDS'
+            })
+try:
+            timestream.write_records(
+                DatabaseName=database_name,
+                TableName=table_name,
+                Records=records
+            )
+            print(f"Uploaded metrics for {row['Application_ID']} at {row['Time_Stamp']}")
+        except Exception as e:
+            print(f"Error uploading record: {e}")
+            print(e.response)
+            time.sleep(1)
+```
+Query by Application_Name:
+```bash
+aws timestream-query query --query-string 'SELECT * FROM "OmptimaTechDB"."DevOPsMetrics" WHERE Application_Name = ''TrafficManagementSystem'' ORDER BY time DESC LIMIT 100’  
+aws timestream-query query --query-string 'SELECT Application_Name, time, measure_value::double FROM "OmptimaTechDB"."DevOPsMetrics" WHERE measure_name = ''CPU_Usage'' ORDER BY Application_Name, time’
+```
+Query by Time:
+```bash
+aws timestream-query query --query-string 'SELECT * FROM "OmptimaTechDB"."DevOPsMetrics" WHERE time < ago(1h)’  
+aws timestream-query query --query-string 'SELECT * FROM "OmptimaTechDB"."DevOPsMetrics" WHERE time BETWEEN ago(10m) AND ago(5m)’
+```
 ### Outcomes
 - Demonstrated benefits over traditional RDBMS
 - Real‑time and historical monitoring capabilities
@@ -748,10 +881,33 @@ Designed and implemented an AWS **Timestream** database to monitor DevOps infras
 
 ### Overview
 Created a unified enterprise architecture for a multi‑domain organization (Healthcare, Fintech, E‑commerce) focused on security, scalability, and cost optimization.
-
+### Project Presentation
+[Link]
 ### Frameworks
 - TOGAF ADM
 - Zero Trust Architecture
+
+### Details
+<p><img width="843" height="476" alt="image" src="https://github.com/user-attachments/assets/d6ba372c-4e83-40d6-ada0-c2272d069e30" /></p>
+<p><img width="840" height="474" alt="image" src="https://github.com/user-attachments/assets/a20baf54-afab-4533-ac23-11b412bd607a" /></p>
+<p><img width="842" height="476" alt="image" src="https://github.com/user-attachments/assets/e6fe7a9a-d22f-457a-a900-178030fe72cf" /></p>
+<p><img width="841" height="475" alt="image" src="https://github.com/user-attachments/assets/dd000883-52a1-4fc2-ae35-6e3853bafb40" /></p>
+
+### Data Diagrams
+Heathcare:
+<p><img width="1638" height="883" alt="image" src="https://github.com/user-attachments/assets/ef50b89a-03d9-4fab-bafc-5ec218525928" /></p>
+Fintech:
+<p><img width="1578" height="919" alt="image" src="https://github.com/user-attachments/assets/9d4adda8-2fa1-4391-9075-30cd13bcaea9" /></p>
+E-Commerce:
+<p><img width="1654" height="876" alt="image" src="https://github.com/user-attachments/assets/e15b008a-fba1-456b-9a23-b39effcd6f65" /></p>
+Unified Approach:
+<p><img width="1662" height="872" alt="image" src="https://github.com/user-attachments/assets/989c6809-e9fb-475a-8830-e227b6afe7bb" /></p>
+
+### Example Product Integration
+This example is for a wearable IoT device that collects healthcare data and sends it to a phone application via Bluetooth. Next, we want the phone app to send that data over the internet to the private server which hosts the database where the data is located. When we send data over the internet, we need to ensure that it is encrypted in transit on the way to the database and at rest in the database itself. This is also where AlphaCorp should develop the APIs to ensure that secure transfer of data. Next, we want another API to transfer the data from the private server into the public cloud server. Moving forward AlphaCorp should also consider creating a singular, scalable cloud database for their healthcare patient data instead of each product having its own data location. Lastly this data is transferred from the cloud network to the web application for the Doctor to utilize to assist with patient diagnosis and other care activities.
+<p><img width="840" height="475" alt="image" src="https://github.com/user-attachments/assets/eeda583f-8bca-4c88-84d7-1b3651443b77" /></p>
+Data Flow Diagram:
+<p><img width="1566" height="923" alt="image" src="https://github.com/user-attachments/assets/1632565f-ecef-466d-8ac3-1a34315bcdae" /></p>
 
 ### Outcomes
 - Risk prioritization and ROI mapping
