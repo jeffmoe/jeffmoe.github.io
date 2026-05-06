@@ -1,3 +1,9 @@
+---
+title: Develop and Analyze a Linear Regression Model
+parent: AI, High Performance Computing, and Ethical Considerations
+nav_order: 2
+---
+
 ### Overview
 Built a regression model to predict **food delivery times** using factors such as distance, preparation time, and weather conditions. Model performance was assessed using **R², RMSE, and MAE**.
 
