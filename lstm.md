@@ -212,7 +212,7 @@ model = model_train(model, callbacks, X_train, y_train, X_test, y_test, epochs =
 model_eval(model, stocks_df, train_size, 60, X_test, y_test, scaler, target_idx=5)
 ```
 <p><img width="809" height="328" alt="image" src="https://github.com/user-attachments/assets/f82a5fc7-b2b1-4a29-98d7-f61af99274be" /></p>
-<p><img width="825" height="806" alt="image" src="https://github.com/user-attachments/assets/c22a9366-8901-42fe-a260-3e5b14dd2cad" /></p>
+<p><img width="825" height="806" alt="image" src="https://github.com/user-attachments/assets/73313b99-2850-427c-af32-35707a14c19c" /></p>
 
 ### Outcomes
 - **R²:** 0.73
