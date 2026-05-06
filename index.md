@@ -58,6 +58,7 @@ Developed a **CNN classifier** and **GAN** using the MNIST dataset (70,000 handw
 - Performance metrics and visual analysis
 
 ### Tools
+
 | Tool         | Use                            |
 |:-------------|:-------------------------------|
 | PyTorch      | Model development and training |
