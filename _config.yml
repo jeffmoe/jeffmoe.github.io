@@ -3,7 +3,8 @@ plugins:
 - jekyll-remote-theme
 title: Jeff Moe
 description: A online portfolio showcasing my skills and career journey.
-index: README.md
+index: index.md
 back_to_top: true
 back_to_top_text: "Back to top"
 color_scheme: dark
+nav_sort: case_insensitive
