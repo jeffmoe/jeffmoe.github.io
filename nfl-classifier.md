@@ -193,6 +193,6 @@ print(f"Accuracy: {accuracy:.4f}")
 - **Accuracy:** 62.3%
 - Strong performance for wide receivers
 - Identified class imbalance as a key limitation
-  [Project Link]
+- [Project Link](https://github.com/jeffmoe/jeffmoe.github.io/blob/main/Project%20Docs/Discriminative_Model.ipynb)
 <p><img width="545" height="481" alt="image" src="https://github.com/user-attachments/assets/c29c2b1d-82c1-4528-944f-e8aeac4c9317" /></p>
 ---
