@@ -51,6 +51,8 @@ print(data_clean.shape)
 x = data_clean
 y = target.values.reshape(-1,1)
 ```
+<p><img width="666" height="568" alt="image" src="https://github.com/user-attachments/assets/4fccc560-75da-4acb-8ff7-c018c98bdf7c" /></p>
+
 ### Pytoch Classes - Training and Testing
 ```python
 class Time_Predict_Data(Dataset):
@@ -165,8 +167,7 @@ print(avg_feature1, avg_feature2, avg_feature3, avg_intercept)
 - **RMSE:** 9.85 minutes
 - **MAE:** 7.30 minutes
 - Identified prediction weaknesses with longer delivery times
-  [Project Link]
-<p><img width="666" height="568" alt="image" src="https://github.com/user-attachments/assets/4fccc560-75da-4acb-8ff7-c018c98bdf7c" /></p>
+- [Project Link](https://github.com/jeffmoe/jeffmoe.github.io/blob/main/Project%20Docs/Linear_Regression.ipynb)
 <p><img width="852" height="545" alt="image" src="https://github.com/user-attachments/assets/4d37a7fa-39fc-47ec-8b1f-93f099772133" /></p>
 <p><img width="843" height="548" alt="image" src="https://github.com/user-attachments/assets/5bd0b61c-008d-4729-8a55-a40d21f2c325" /></p>
 <p><img width="788" height="597" alt="image" src="https://github.com/user-attachments/assets/64bbcb96-be07-41ce-b713-f98540a617bf" /></p>
