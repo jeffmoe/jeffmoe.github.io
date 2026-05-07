@@ -186,7 +186,7 @@ for epoch in range(num_epochs):
 - High precision and recall across all classes
 - GAN converged with decreasing generator and discriminator losses
 - Substantial reduction in training time using AMP and parallelism
-  [Project Link]
+- [Project Link](https://github.com/jeffmoe/jeffmoe.github.io/blob/main/Project%20Docs/GAN_with_Classifier.ipynb)
 
 <p><img width="846" height="468" alt="image" src="https://github.com/user-attachments/assets/a5acc71a-0db1-4eca-8b15-7db6886c742d" /></p>
 <p><img width="833" height="468" alt="image" src="https://github.com/user-attachments/assets/ff4cb7c2-ed8e-487c-94c1-757e64a7dae2" /></p>
