@@ -192,6 +192,6 @@ aws timestream-query query --query-string 'SELECT * FROM "OmptimaTechDB"."DevOPs
 - Demonstrated benefits over traditional RDBMS
 - Real‑time and historical monitoring capabilities
 - Scalable architecture for DevOps analytics
-- [Project Link]
+- [Project Link](https://github.com/jeffmoe/jeffmoe.github.io/blob/main/Project%20Docs/Assessing%20Time%20Series%20Databases%20in%20DevOps%20with%20OptimaTech.pptx)
 
 ---
