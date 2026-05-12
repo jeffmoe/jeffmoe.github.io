@@ -218,6 +218,6 @@ model_eval(model, stocks_df, train_size, 60, X_test, y_test, scaler, target_idx=
 - **R²:** 0.73
 - Identified lag and tuning opportunities
 - Real‑world time‑series forecasting experience
-- [Project Link]
+- [Project Link](https://github.com/jeffmoe/jeffmoe.github.io/blob/main/Project%20Docs/LSTM_Stock_Price_Predictor.ipynb)
 
 ---
