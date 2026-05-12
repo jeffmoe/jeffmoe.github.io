@@ -11,32 +11,33 @@ Project highlighting using PySpark and MLlib on a dataset of bank churn customer
 - Used WSL2 Debian distribution on Windows 11.  
 - Code was run in a Jupyter Notebook inside VSCode.  
 - Dataset comes from Kaggle:  
-  - https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling/data  
+  - https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling/data
+
 ### Steps
 1. **Create Virtual Environment**
 
-   ```bash
+```bash
     Python –m venv venv
     Source venv/bin/activate
     Pip install –-upgrade pip
-    ```
+```
    
 2. **Installed Jupyter and Pyspark**
 
-   ```bash
+```bash
     Pip install jupyter
     Pip install pyspark
-    ```
+```
    
 3. **Install findspark**
 
-   ```bash
+```bash
     pip install findspark
-   ```
+```
    
 4. **Notebook Code**
 
-   ```python
+```python
    import findspark
    findspark.init()
    import pyspark
@@ -44,7 +45,7 @@ Project highlighting using PySpark and MLlib on a dataset of bank churn customer
    .appName("Churn Prediction with PySpark MLlib") \
    .getOrCreate()
     print("Spark Session created successfully.")
-   ```
+```
    
 ### EDA
 ```python
