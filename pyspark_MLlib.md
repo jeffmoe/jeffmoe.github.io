@@ -14,22 +14,25 @@ Project highlighting using PySpark and MLlib on a dataset of bank churn customer
   - https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling/data  
 ### Steps
 1. **Create Virtual Environment**
-   ```
+   ```bash
     Python –m venv venv
     Source venv/bin/activate
     Pip install –-upgrade pip
     ```
+   
 2. **Installed Jupyter and Pyspark**
-   ```
+   ```bash
     Pip install jupyter
     Pip install pyspark
     ```
+   
 3. **Install findspark**
-   ```
+   ```bash
     pip install findspark
    ```
+   
 4. **Notebook Code**
-   ```
+   ```python
    import findspark
    findspark.init()
    import pyspark
@@ -38,6 +41,7 @@ Project highlighting using PySpark and MLlib on a dataset of bank churn customer
    .getOrCreate()
     print("Spark Session created successfully.")
    ```
+   
 ### EDA
 ```python
 import findspark
@@ -63,6 +67,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 print("Spark Session created successfully.")
 ```
+
 ```text
 WARNING: Using incubator modules: jdk.incubator.vector
 Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
@@ -74,6 +79,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 26/04/09 11:42:34 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Spark Session created successfully.
 ```
+
 ```python
 df = spark.read.csv("Churn_Modelling.csv", header=True, inferSchema=True)
 print(f"Data loaded with {df.count():,} rows and {len(df.columns)} columns.")
@@ -82,6 +88,7 @@ df.printSchema()
 print("\nFirst 10 rows:")
 df.show(10)
 ```
+
 ```text
 Data loaded with 10,000 rows and 14 columns.
 
@@ -120,6 +127,7 @@ First 10 rows:
 +---------+----------+--------+-----------+---------+------+---+------+---------+-------------+---------+--------------+---------------+------+
 only showing top 10 rows
 ```
+
 ```python
 print("\nEDA: Stats")
 number_cols = [col for col, dtype in df.dtypes if dtype in ['int', 'double']]
@@ -131,6 +139,7 @@ for col in df.columns:
     missing = df.filter(F.col(col).isNull()).count()
     print(f"{col}: {missing} missing values")
 ```
+
 ```text
 EDA: Stats
 26/04/09 11:42:39 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
@@ -160,6 +169,7 @@ IsActiveMember: 0 missing values
 EstimatedSalary: 0 missing values
 Exited: 0 missing values
 ```
+
 ```python
 print("\nChurn Breakdown:")
 churn = df.groupBy("Exited").count().toPandas()
@@ -178,6 +188,7 @@ for x, y in zip(churn['Exited'], churn['count']):
 plt.tight_layout()
 plt.show()
 ```
+
 ```text
 Churn Breakdown:
  Exited  count
@@ -187,6 +198,8 @@ Churn Breakdown:
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 ```
+<p><img width="1114" height="490" alt="image" src="https://github.com/user-attachments/assets/aa0b22d7-f1e7-44f3-a180-3f54e1fe9460" /></p>
+
 ```python
   sns.barplot(data=churn, x='Exited', y='count', ax=axes[1], palette=colors)
 
@@ -213,6 +226,7 @@ for idx in range(len(col_plots), len(axes)):
 plt.tight_layout()
 plt.show()
 ```
+
 ```text
 Churn Feature Analysis:
 
@@ -266,6 +280,8 @@ EstimatedSalary:
       1 101465.677531 57912.418071  11.58
       0  99738.391772 57405.586966  90.07
 ```
+<p><img width="1587" height="990" alt="image" src="https://github.com/user-attachments/assets/d87821bf-d176-43e5-b5ad-5cb7cb256737" /></p>
+
 ```python
 print("\nCategorical Churn Analysis:")
 geography = df.groupBy("Geography", 'Exited').count().toPandas()
@@ -305,6 +321,7 @@ axes[1].legend()
 plt.tight_layout()
 plt.show()
 ```
+
 ```text
 Categorical Churn Analysis:
 
@@ -321,6 +338,8 @@ Gender
 Female  3404  1139   25.071539
 Male    4559   898   16.455928
 ```
+<p><img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/b3a7321b-d432-49b9-92c6-e0e86a9b3127" /></p>
+
 ```python
 ages = [18, 30,40,50,60,100]
 age_label = ['18-29','30-39','40-49','50-59','60-69','70+']
@@ -361,6 +380,7 @@ axes[1].set_ylabel('Age')
 plt.tight_layout()
 plt.show()
 ```
+
 ```text
 Age Group Churn Rates:
 Exited       0    1  Churn Rate
@@ -380,6 +400,8 @@ Balance and Salary Churn:
 
 Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
 ```
+<p><img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/387a28a2-7369-4e32-8ff1-3c91b7e521e8" /></p>
+
 ```python
   sns.boxplot(data=age_data, x='Exited', y='Age', ax=axes[1], palette=colors)
 
@@ -426,6 +448,7 @@ for x, y in zip(card_data['HasCrCard'], card_data['Churn Rate']):
 plt.tight_layout()
 plt.show()
 ```
+
 ```text
 Product Usage and Churn:
 Exited              0       1  Churn Rate
@@ -447,6 +470,8 @@ HasCrCard
 0          2332   613   20.814941
 1          5631  1424   20.184266
 ```
+<p><img width="1489" height="490" alt="image" src="https://github.com/user-attachments/assets/7cd38f3e-a391-4d19-8314-9b2dce88f151" /></p>
+
 ```python
 print("\nTenure and Churn:")
 tenure_churn = df.groupBy("Tenure", "Exited").count().toPandas()
@@ -465,6 +490,7 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()
 ```
+
 ```text
 Tenure and Churn:
 Exited    0    1  Churn Rate
@@ -481,6 +507,9 @@ Tenure
 9       771  213   21.646341
 10      389  101   20.612245
 ```
+<p><img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/c184edcc-2de7-477e-b7d6-f6f6a24d52a9" /></p>
+
+### Pipeline Prep and Model Training
 ```python
 print("\nData Prep for Modeling:")
 df_model = df.drop("RowNumber","CustomerId","Surname")
@@ -493,6 +522,7 @@ print("Target Column: Exited")
 print("\nClass Distribution:")
 df_model.groupBy("Exited").count().show()
 ```
+
 ```text
 Data Prep for Modeling:
 Categorical Columns: ['Geography', 'Gender']
@@ -507,6 +537,7 @@ Class Distribution:
 |     0| 7963|
 +------+-----+
 ```
+
 ```python
 indexers = [StringIndexer(inputCol=col, outputCol=col + "_index", handleInvalid="keep") 
             for col in categorical_cols]
@@ -528,6 +559,7 @@ print("Pipeline stages:")
 for i, stage in enumerate(pipeline.getStages()):
     print(f"  Stage {i+1}: {stage.__class__.__name__}")
 ```
+
 ```text
 Pipeline stages:
   Stage 1: StringIndexer
@@ -538,6 +570,7 @@ Pipeline stages:
   Stage 6: StandardScaler
   Stage 7: LogisticRegression
 ```
+
 ```python
 train_df, test_df = df_model.randomSplit([0.7, 0.3], seed=42)
 
@@ -548,6 +581,7 @@ train_df.groupBy("Exited").count().show()
 print(f"\nTest set class distribution:")
 test_df.groupBy("Exited").count().show()
 ```
+
 ```text
 Training set size: 7,104
 Test set size: 2,896
@@ -569,6 +603,7 @@ Test set class distribution:
 |     0| 2292|
 +------+-----+
 ```
+
 ```python
 print("\nHyperparameter Tuning:")
 paramGrid = ParamGridBuilder() \
@@ -603,6 +638,7 @@ print(f"maxIter: {best_model.stages[-1]._java_obj.getMaxIter()}")
 print(f"threshold: {best_model.stages[-1]._java_obj.getThreshold()}")
 print(f"\nBest cross-validation accuracy: {max(cv_model.avgMetrics):.4f}")
 ```
+
 ```text
 Hyperparameter Tuning:
 Parameter combinations: 72
@@ -621,6 +657,7 @@ threshold: 0.5
 
 Best cross-validation accuracy: 0.8097
 ```
+### Model Evaluation
 ```python
 print("\nModel Evaluation:")
 test_predictions = best_model.transform(test_df)
@@ -643,6 +680,7 @@ print(f"Recall (label 1):    {recall:.4f} ({recall*100:.2f}%)")
 print(f"F1-Score (weighted):  {f1_score:.4f} ({f1_score*100:.2f}%)")
 print(f"F1-Score (label 1):   {f1_label1:.4f} ({f1_label1*100:.2f}%)")
 ```
+
 ```text
 Model Evaluation:
 Accuracy:  0.8142 (81.42%)
@@ -651,6 +689,7 @@ Recall (label 1):    0.1904 (19.04%)
 F1-Score (weighted):  0.7691 (76.91%)
 F1-Score (label 1):   0.2995 (29.95%)
 ```
+
 ```python
 predictions_pd = test_predictions.select("Exited", "prediction").toPandas()
 cm = confusion_matrix(predictions_pd['Exited'], predictions_pd['prediction'])
@@ -665,6 +704,7 @@ plt.ylabel('True Label', fontsize=12)
 plt.tight_layout()
 plt.show()
 ```
+
 ```python
 print("\nClassification Report:")
 print(classification_report(predictions_pd['Exited'], predictions_pd['prediction'],
@@ -676,6 +716,8 @@ print(f"  False Positives (Wrongly predicted churned): {cm[0,1]:,}")
 print(f"  False Negatives (Wrongly predicted stayed): {cm[1,0]:,}")
 print(f"  True Positives (Correctly predicted churned): {cm[1,1]:,}")
 ```
+<p><img width="751" height="590" alt="image" src="https://github.com/user-attachments/assets/d9138eda-0c5c-4e6d-8be3-0265534e653a" /></p>
+
 ```text
 Classification Report:
               precision    recall  f1-score   support
@@ -692,7 +734,8 @@ Confusion Matrix Values:
   False Positives (Wrongly predicted churned): 49
   False Negatives (Wrongly predicted stayed): 489
   True Positives (Correctly predicted churned): 115
-  ```
+```
+
 ```python
 probabilities_pd = test_predictions.select("probability", "Exited").toPandas()
 probabilities_pd['probability_positive'] = probabilities_pd['probability'].apply(lambda x: x[1])
@@ -714,9 +757,12 @@ plt.show()
 
 print(f"Area Under ROC Curve (AUC): {roc_auc:.4f}")
 ```
+<p><img width="789" height="590" alt="image" src="https://github.com/user-attachments/assets/59d193d3-6b61-469f-963a-347c5c20a541" /></p>
+
 ```text
 Area Under ROC Curve (AUC): 0.7681
 ```
+
 ```python
 coefficients = best_model.stages[-1].coefficients
 intercept = best_model.stages[-1].intercept
@@ -753,6 +799,8 @@ print("\nTop 10 Most Important Features:")
 for _, row in feature_importance.head(10).iterrows():
     print(f"  {row['Feature']}: coefficient = {row['Coefficient']:.4f} ({row['Impact']} impact)")
 ```
+<p><img width="988" height="790" alt="image" src="https://github.com/user-attachments/assets/d2919230-0247-4847-9e05-52e599484e89" /></p>
+
 ```text
 Model Intercept: -1.6010
 
@@ -768,6 +816,7 @@ Top 10 Most Important Features:
   HasCrCard: coefficient = 0.0000 (Negative impact)
   Gender_encoded: coefficient = 0.0000 (Negative impact)
 ```
+
 ```python
 print("\nLearning Curve Analysis:")
 
@@ -823,6 +872,7 @@ if overfitting_gap > 0.05:
 else:
     print("Model generalizes well (minimal overfitting)")
 ```
+
 ```text
 Learning Curve Analysis:
 Training size:  10% - Train Acc: 0.8039, Val Acc: 0.8118
@@ -838,6 +888,8 @@ Training size:  90% - Train Acc: 0.8095, Val Acc: 0.8142
 Average overfitting gap: -0.0141
 Model generalizes well (minimal overfitting)
 ```
+<p><img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/de70c0a8-6746-49c5-8759-66b15264e6f4" /></p>
+
 ```python
 print("\nFinal Summary:")
 
@@ -874,6 +926,7 @@ print(f"   Third most important: {feature_importance.iloc[2]['Feature']} (coef: 
 
 print("\nSummary complete.")
 ```
+
 ```text
 Final Summary:
 
@@ -910,6 +963,7 @@ Insights:
 
 Summary complete.
 ```
+
 ```python
 def predict_churn(credit_score, geography, gender, age, tenure, balance, 
                   num_products, has_credit_card, is_active_member, estimated_salary):
@@ -957,6 +1011,7 @@ print(f"   Input: Age={test_age}, Geography={test_geo}, Balance={test_balance:,.
 print(f"   Prediction: {'Churned' if pred == 1 else 'Stayed'}")
 print(f"   Probability of churn: {prob:.4f} ({prob*100:.2f}%)")
 ```
+
 ```text
 Testing predictions:
 [Stage 15698:>                                                    (0 + 32) / 32]
