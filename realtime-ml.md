@@ -973,5 +973,6 @@ with st.sidebar.expander("How to run", expanded=False):
 - Fully streaming ML pipeline
 - Real‑time prediction dashboard
 - Strong back‑end and front‑end integration
-- [Project Link]
+- [Project Link](https://github.com/jeffmoe/jeffmoe.github.io/tree/main/Project%20Docs/Real-Time%20Machine%20Learning%20Pipeline)
+
 ---
