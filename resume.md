@@ -48,7 +48,7 @@ Strong leader and problem-solver with 8+ years of industry experience, dedicated
   
 ## Technical Skills
 - Programming Languages: Python, SQL, Gremlin
-- Machine Learning Libraries: Scikit-learn, PyTorch, TensorFlow, Hugging Face
+- Machine Learning Libraries: Scikit-learn, PyTorch, TensorFlow, Hugging Face, MLlib, PySpark
 - Data Analysis & Visualization: Pandas, NumPy, Seaborn, Power BI, Jupyter Notebooks, Streamlit, PandasAI, ydata-profiling
 - Networking and Architecture: AWS, IaC, MySQL, RDBMS, AWS SDK, AWS CLI, NoSQL DBMS, Redis, Docker, Kafka, FastAPI, Git, GitHub, Langchain
 - AWS Architecture: RDS, S3, EC2, VPC, Neptune, CloudWatch, DynamoDB, IAM, CloudFormation, Lambda, Timestream
