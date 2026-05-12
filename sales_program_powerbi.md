@@ -121,6 +121,7 @@ The solution automates data collection, transformation, and reporting using the 
     - Quote Number
     - Order Number
     - Order Categories
+   
 ---
 
 ## Key Insights Enabled
@@ -151,5 +152,3 @@ The solution automates data collection, transformation, and reporting using the 
 - Enhanced anonymization layer for external sharing
 
 ---
-
-``
