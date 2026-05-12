@@ -9,7 +9,7 @@ Developed a **hybrid classification system** combining a Random Forest classifie
 
 ### Methodologies
 - Feature encoding and scaling
-- Random Forest with GridSearchCV
+- Random Forest with `GridSearchCV`
 - Neural network incorporating Random Forest predictions
 - Confusion matrix analysis
 
