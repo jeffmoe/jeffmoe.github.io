@@ -14,6 +14,7 @@ Project highlighting using PySpark and MLlib on a dataset of bank churn customer
   - https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling/data  
 ### Steps
 1. **Create Virtual Environment**
+
    ```bash
     Python –m venv venv
     Source venv/bin/activate
@@ -21,17 +22,20 @@ Project highlighting using PySpark and MLlib on a dataset of bank churn customer
     ```
    
 2. **Installed Jupyter and Pyspark**
+
    ```bash
     Pip install jupyter
     Pip install pyspark
     ```
    
 3. **Install findspark**
+
    ```bash
     pip install findspark
    ```
    
 4. **Notebook Code**
+
    ```python
    import findspark
    findspark.init()
