@@ -29,6 +29,7 @@ This project implements a sentiment analysis classifier for movie reviews using 
   - svm__C: [0.01, 0.1, 1.0, 10.0]
 
 - Evaluation Metrics:
+  - 1 = positive review, 0 = negative review  
   - Classification report (precision, recall, f1-score)
   - Confusion matrix visualization
   - Precision-Recall curve
