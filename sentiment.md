@@ -47,6 +47,7 @@ This project implements a sentiment analysis classifier for movie reviews using 
       import nltk
       nltk.download('popular')
       ```
+      
   ---
 ## Basic Use
 ### Load and preprocess data
