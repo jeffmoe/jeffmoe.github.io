@@ -492,3 +492,8 @@ print(f"Decision scores for new texts: {scores}")
 Predictions for new texts: [1 0]
 Decision scores for new texts: [ 1.98126893 -3.37981217]
 ```
+
+---
+## Results
+<p><img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/3f3f5844-ee82-44ef-8d42-55be1312cde0" /></p>
+<p><img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/7a0568d4-a2cf-4791-b2fe-64a0450eba3d" /></p>
