@@ -8,3 +8,6 @@ back_to_top: true
 back_to_top_text: "Back to top"
 color_scheme: dark
 nav_sort: case_insensitive
+
+mermaid:
+  version: "10.2.4"
