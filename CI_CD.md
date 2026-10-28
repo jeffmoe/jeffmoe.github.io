@@ -1,6 +1,6 @@
 ---
 title: CI/CD with Github Actions
-parent: Database Systems
+parent: DataOps
 nav_order: 1
 ---
 
